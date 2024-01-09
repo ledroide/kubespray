@@ -146,7 +146,7 @@ seccomp_profile = "{{ crio_seccomp_profile }}"
 # does not specify a profile via the Kubernetes Pod's metadata annotation. If
 # the profile is set to "unconfined", then this equals to disabling AppArmor.
 # This option supports live configuration reload.
-# apparmor_profile = "crio-default"
+apparmor_profile = "unconfined"
 
 # Cgroup management implementation used for the runtime.
 cgroup_manager = "{{ crio_cgroup_manager }}"
