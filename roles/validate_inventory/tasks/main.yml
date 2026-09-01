@@ -128,7 +128,7 @@
 - name: "Check that kube_service_addresses_ipv6 is a network range"
   assert:
     that:
-      - kube_service_addresses_ipv6 | ansible.utils.ipaddr('net')
+      - kube_service_addresses_ipv6 | ansible.utils.ipaddr('net') is not false
     msg: "kube_service_addresses_ipv6 = '{{ kube_service_addresses_ipv6 }}' is not a valid network range"
   run_once: true
   when: ipv6_stack | bool
@@ -136,7 +136,7 @@
 - name: "Check that kube_pods_subnet_ipv6 is a network range"
   assert:
     that:
-      - kube_pods_subnet_ipv6 | ansible.utils.ipaddr('net')
+      - kube_pods_subnet_ipv6 | ansible.utils.ipaddr('net') is not false
     msg: "kube_pods_subnet_ipv6 = '{{ kube_pods_subnet_ipv6 }}' is not a valid network range"
   run_once: true
   when: ipv6_stack | bool
